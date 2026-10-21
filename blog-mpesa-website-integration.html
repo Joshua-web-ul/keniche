@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>M-Pesa Website Integration Guide for Kenyan Businesses (2025) | Keniche</title>
+    <meta name="description"
+        content="Step-by-step guide to integrating M-Pesa payments into your website in Kenya. Understand STK Push, Daraja API, costs, and find the right developer." />
+    <meta name="keywords"
+        content="M-Pesa website integration Kenya, Daraja API Kenya, M-Pesa STK Push website, accept M-Pesa online Kenya, M-Pesa developer Nairobi" />
+    <link rel="canonical" href="https://keniche.com/blog-mpesa-website-integration.html" />
+    <meta property="og:title" content="M-Pesa Website Integration Guide for Kenyan Businesses (2025)" />
+    <meta property="og:description"
+        content="How to accept M-Pesa payments on your website. A plain-English guide for Kenyan business owners." />
+    <meta property="og:type" content="article" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "M-Pesa Website Integration Guide for Kenyan Businesses (2025)",
+      "author": {"@type": "Organization", "name": "Keniche"},
+      "publisher": {"@type": "Organization", "name": "Keniche", "url": "https://keniche.com"},
+      "datePublished": "2025-10-21"
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap"
+        rel="stylesheet" />
+    <style>
+        :root {
+            --ink: #0A0E1A;
+            --ink-2: #141929;
+            --ink-3: #1E2640;
+            --blue: #2563EB;
+            --glow: #60A5FA;
+            --amber: #F59E0B;
+            --white: #F8FAFF;
+            --muted: #94A3B8;
+            --border: rgba(96, 165, 250, 0.15);
+            --font-head: 'Syne', sans-serif;
+            --font-body: 'DM Sans', sans-serif;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: var(--ink);
+            color: var(--white);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        a {
+            color: var(--glow);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.25rem 5vw;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-logo {
+            font-family: var(--font-head);
+            font-weight: 800;
+            font-size: 1.2rem;
+            letter-spacing: -0.03em;
+            color: var(--white);
+        }
+
+        .nav-logo span {
+            color: var(--amber);
+        }
+
+        .nav-back {
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        .blog-hero {
+            max-width: 780px;
+            margin: 3.5rem auto 2.5rem;
+            padding: 0 5vw;
+        }
+
+        .blog-tag {
+            display: inline-block;
+            background: rgba(37, 99, 235, 0.15);
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            color: var(--glow);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.35rem 0.85rem;
+            border-radius: 100px;
+            margin-bottom: 1.25rem;
+        }
+
+        .blog-hero h1 {
+            font-family: var(--font-head);
+            font-size: clamp(1.8rem, 4vw, 2.75rem);
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .blog-meta {
+            font-size: 0.82rem;
+            color: var(--muted);
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .blog-intro {
+            font-size: 1.1rem;
+            color: var(--muted);
+            line-height: 1.8;
+            border-left: 3px solid var(--amber);
+            padding-left: 1.25rem;
+        }
+
+        .blog-body {
+            max-width: 780px;
+            margin: 0 auto 5rem;
+            padding: 0 5vw;
+        }
+
+        .blog-body h2 {
+            font-family: var(--font-head);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 2.5rem 0 0.75rem;
+            color: var(--white);
+        }
+
+        .blog-body h3 {
+            font-family: var(--font-head);
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin: 1.75rem 0 0.5rem;
+            color: var(--glow);
+        }
+
+        .blog-body p {
+            margin-bottom: 1.25rem;
+            color: #CBD5E1;
+        }
+
+        .blog-body ul,
+        .blog-body ol {
+            padding-left: 1.5rem;
+            margin-bottom: 1.25rem;
+            color: #CBD5E1;
+        }
+
+        .blog-body li {
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-body strong {
+            color: var(--white);
+        }
+
+        .step-card {
+            background: var(--ink-2);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--amber);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .step-card h3 {
+            color: var(--amber);
+            margin-top: 0;
+            font-size: 1rem;
+        }
+
+        .step-num {
+            display: inline-block;
+            background: var(--amber);
+            color: var(--ink);
+            font-family: var(--font-head);
+            font-weight: 800;
+            font-size: 0.75rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 100px;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-box {
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid rgba(37, 99, 235, 0.25);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .info-box strong {
+            color: var(--glow);
+        }
+
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.92rem;
+        }
+
+        .price-table th {
+            background: var(--ink-3);
+            color: var(--muted);
+            font-weight: 600;
+            text-align: left;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .price-table td {
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            color: #CBD5E1;
+        }
+
+        .price-table tr:nth-child(even) td {
+            background: rgba(30, 38, 64, 0.4);
+        }
+
+        .hl {
+            color: var(--amber);
+            font-weight: 700;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.15), rgba(245, 158, 11, 0.1));
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2.5rem 0;
+            text-align: center;
+        }
+
+        .cta-box h3 {
+            font-family: var(--font-head);
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .cta-box p {
+            color: var(--muted);
+            margin-bottom: 1.25rem;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: #25D366;
+            color: #fff;
+            padding: 0.85rem 2rem;
+            border-radius: 8px;
+            font-family: var(--font-head);
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2rem 5vw;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.82rem;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-logo">Ken<span>iche</span></div>
+        <a href="index.html" class="nav-back">← Back to site</a>
+    </nav>
+
+    <div class="blog-hero">
+        <div class="blog-tag">M-Pesa · Payments · Kenya</div>
+        <h1>M-Pesa Website Integration Guide for Kenyan Businesses (2025)</h1>
+        <div class="blog-meta">
+            <span>📅 October 2025</span>
+            <span>✍️ Keniche Digital</span>
+            <span>⏱️ 8 min read</span>
+        </div>
+        <p class="blog-intro">Over 30 million Kenyans use M-Pesa. If your website can't accept M-Pesa payments, you're
+            leaving serious money on the table. Here's everything you need to know — in plain English.</p>
+    </div>
+
+    <div class="blog-body">
+
+        <h2>Why M-Pesa Integration Matters</h2>
+        <p>Cash is still king in many parts of Kenya, but <strong>mobile money is overtaking it fast</strong>. For any
+            e-commerce store, booking site, or services business, accepting M-Pesa online means:</p>
+        <ul>
+            <li>Customers pay instantly without leaving your website</li>
+            <li>You receive automatic payment confirmations</li>
+            <li>You can serve customers 24/7, even when you're asleep</li>
+            <li>You build trust — Kenyans trust M-Pesa completely</li>
+        </ul>
+
+        <h2>How M-Pesa Website Integration Works</h2>
+        <p>Safaricom provides a developer platform called the <strong>Daraja API</strong> (Swahili for "Bridge"). It
+            lets your website communicate directly with M-Pesa. Here's the customer experience when it's set up
+            properly:</p>
+
+        <div class="step-card">
+            <div class="step-num">Step 1</div>
+            <h3>Customer clicks "Pay with M-Pesa"</h3>
+            <p>They enter their phone number (07XX XXX XXX) and confirm the amount.</p>
+        </div>
+        <div class="step-card">
+            <div class="step-num">Step 2</div>
+            <h3>STK Push is sent to their phone</h3>
+            <p>A pop-up appears on their Safaricom handset asking them to enter their M-Pesa PIN. This is called an "STK
+                Push" (SIM Toolkit Push).</p>
+        </div>
+        <div class="step-card">
+            <div class="step-num">Step 3</div>
+            <h3>They enter their PIN and confirm</h3>
+            <p>Payment is processed in seconds. Both the customer and you receive an SMS confirmation.</p>
+        </div>
+        <div class="step-card">
+            <div class="step-num">Step 4</div>
+            <h3>Your website updates automatically</h3>
+            <p>The order is marked as paid, a receipt is sent, and inventory is updated — all automatically.</p>
+        </div>
+
+        <h2>What You Need to Get Started</h2>
+        <ol>
+            <li><strong>An M-Pesa Business Account (Paybill or Till Number)</strong> — Apply at any Safaricom shop with
+                your business registration documents (Certificate of Incorporation or Business Registration + KRA PIN)
+            </li>
+            <li><strong>A Daraja API account</strong> — Register at <a href="https://developer.safaricom.co.ke"
+                    target="_blank" rel="noopener">developer.safaricom.co.ke</a> (free)</li>
+            <li><strong>A live website with HTTPS</strong> — The Daraja API requires a secure (https://) website</li>
+            <li><strong>A developer to integrate it</strong> — This is where Keniche comes in</li>
+        </ol>
+
+        <div class="info-box">
+            <strong>💡 Pro tip:</strong> If you're just starting out and don't have a Paybill yet, you can use
+            third-party payment gateways like <strong>Pesapal</strong>, <strong>iPay Africa</strong>, or
+            <strong>Flutterwave</strong> which support M-Pesa and are faster to set up — though they charge slightly
+            higher transaction fees.
+        </div>
+
+        <h2>M-Pesa Integration Options Compared</h2>
+        <table class="price-table">
+            <thead>
+                <tr>
+                    <th>Method</th>
+                    <th>Setup Time</th>
+                    <th>Transaction Fee</th>
+                    <th>Best For</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Daraja API (Direct)</strong></td>
+                    <td>2–4 weeks</td>
+                    <td class="hl">1–2% (Safaricom rates)</td>
+                    <td>High-volume businesses</td>
+                </tr>
+                <tr>
+                    <td><strong>Pesapal</strong></td>
+                    <td>3–5 days</td>
+                    <td class="hl">3.5%</td>
+                    <td>SMEs, quick setup</td>
+                </tr>
+                <tr>
+                    <td><strong>iPay Africa</strong></td>
+                    <td>3–7 days</td>
+                    <td class="hl">3%</td>
+                    <td>E-commerce, WooCommerce</td>
+                </tr>
+                <tr>
+                    <td><strong>Flutterwave</strong></td>
+                    <td>1–3 days</td>
+                    <td class="hl">1.4% + KES 15</td>
+                    <td>Businesses accepting international cards too</td>
+                </tr>
+                <tr>
+                    <td><strong>Intasend</strong></td>
+                    <td>1–2 days</td>
+                    <td class="hl">2.9%</td>
+                    <td>Startups, freelancers</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>How Much Does M-Pesa Integration Cost?</h2>
+        <p>The cost of integrating M-Pesa on your website in Kenya depends on the method and the developer:</p>
+        <ul>
+            <li><strong>Third-party gateway (Pesapal/iPay)</strong>: KES 8,000–20,000 developer fee + gateway
+                subscription</li>
+            <li><strong>Direct Daraja API</strong>: KES 20,000–50,000 developer fee (more complex)</li>
+            <li><strong>M-Pesa Paybill setup</strong>: Free (Safaricom) + monthly fee (varies)</li>
+        </ul>
+
+        <h2>Common Mistakes to Avoid</h2>
+        <ul>
+            <li>❌ <strong>Using sandbox credentials in production</strong> — test thoroughly in the sandbox environment
+                first</li>
+            <li>❌ <strong>Not handling payment callbacks</strong> — your site must listen for Safaricom's confirmation
+                message</li>
+            <li>❌ <strong>No timeout handling</strong> — what happens if a customer's phone is off? Your code must
+                handle this gracefully</li>
+            <li>❌ <strong>Storing M-Pesa credentials in plain text</strong> — always use environment variables</li>
+            <li>❌ <strong>Not testing with real money</strong> — always run a live test transaction before going public
+            </li>
+        </ul>
+
+        <h2>How Long Does Integration Take?</h2>
+        <p>Realistically, here's what to expect:</p>
+        <ul>
+            <li>Getting your Paybill: <strong>3–10 business days</strong> (Safaricom approval)</li>
+            <li>Developer integration: <strong>3–7 days</strong> for straightforward sites</li>
+            <li>Testing: <strong>2–3 days</strong></li>
+            <li><strong>Total: 2–4 weeks</strong> from start to live</li>
+        </ul>
+
+        <div class="cta-box">
+            <h3>Need M-Pesa Integrated Into Your Website?</h3>
+            <p>We've done this for fashion stores, booking platforms, and business portals across Kenya. WhatsApp us and
+                let's get your payments working.</p>
+            <a href="https://wa.me/254700451227?text=Hi%2C+I+need+M-Pesa+integration+on+my+website" class="cta-btn">💬
+                Chat With Us — It's Free to Ask</a>
+        </div>
+
+        <h2>The Bottom Line</h2>
+        <p>M-Pesa integration is no longer optional for any serious Kenyan online business. Whether you go with a
+            third-party gateway for speed or the direct Daraja API for lower fees, the most important thing is to
+            <strong>just do it</strong>. Every day your site can't accept M-Pesa is a day you're sending potential
+            customers elsewhere.</p>
+
+    </div>
+
+    <footer>
+        <p>© 2025 Keniche Digital Solutions · <a href="index.html">keniche.com</a> · Nairobi, Kenya</p>
+    </footer>
+</body>
+
+</html>
