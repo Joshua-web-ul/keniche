@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Logo Design &amp; Branding in Kenya | Keniche</title>
+    <meta name="description"
+        content="Professional logo design and brand identity for businesses in Kenya. Keniche creates logos, brand guidelines, business cards and visual identity systems. From KES 8,000." />
+    <link rel="canonical" href="https://keniche.com/branding-logo-design-kenya.html" />
+    <meta property="og:title" content="Logo Design &amp; Branding in Kenya | Keniche" />
+    <meta property="og:description"
+        content="Stand out with a professional brand identity. Logos, colours, typography and brand guidelines built for Kenyan businesses." />
+    <meta property="og:type" content="article" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap"
+        rel="stylesheet" />
+    <style>
+        :root {
+            --ink: #0A0E1A;
+            --ink-2: #141929;
+            --blue: #2563EB;
+            --glow: #60A5FA;
+            --amber: #F59E0B;
+            --white: #F8FAFF;
+            --muted: #94A3B8;
+            --border: rgba(96, 165, 250, 0.15);
+            --font-head: 'Syne', sans-serif;
+            --font-body: 'DM Sans', sans-serif;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: var(--ink);
+            color: var(--white);
+            font-family: var(--font-body);
+            line-height: 1.8;
+        }
+
+        a {
+            color: var(--glow);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.25rem 5vw;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-family: var(--font-head);
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--white);
+        }
+
+        .logo span {
+            color: var(--amber);
+        }
+
+        .nav-cta {
+            background: var(--blue);
+            color: #fff;
+            padding: 0.6rem 1.4rem;
+            border-radius: 8px;
+            font-family: var(--font-head);
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 5vw;
+        }
+
+        .page-hero {
+            padding: 5rem 0 4rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(245, 158, 11, 0.15);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            color: var(--amber);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 0.35rem 0.85rem;
+            border-radius: 100px;
+            margin-bottom: 1.25rem;
+        }
+
+        h1 {
+            font-family: var(--font-head);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            max-width: 720px;
+            margin-bottom: 1.25rem;
+        }
+
+        h1 span {
+            color: var(--amber);
+        }
+
+        .lead {
+            font-size: 1.1rem;
+            color: var(--muted);
+            max-width: 600px;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: var(--blue);
+            color: #fff;
+            padding: 0.85rem 2rem;
+            border-radius: 8px;
+            font-family: var(--font-head);
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary:hover {
+            background: var(--glow);
+            text-decoration: none;
+        }
+
+        .content-section {
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h2 {
+            font-family: var(--font-head);
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        h2 span {
+            color: var(--glow);
+        }
+
+        p {
+            color: #CBD5E1;
+            margin-bottom: 1.25rem;
+            max-width: 700px;
+        }
+
+        .pkg-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .pkg {
+            background: var(--ink-2);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .pkg.featured {
+            border-color: var(--amber);
+        }
+
+        .pkg-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--amber);
+            color: var(--ink);
+            font-family: var(--font-head);
+            font-size: 0.72rem;
+            font-weight: 800;
+            padding: 0.3rem 1rem;
+            border-radius: 100px;
+            white-space: nowrap;
+        }
+
+        .pkg-name {
+            font-family: var(--font-head);
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.25rem;
+        }
+
+        .pkg-price {
+            font-family: var(--font-head);
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1.25rem;
+        }
+
+        .pkg-features {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .pkg-features li {
+            display: flex;
+            gap: 0.6rem;
+            font-size: 0.9rem;
+            color: #CBD5E1;
+        }
+
+        .pkg-features li::before {
+            content: "✓";
+            color: var(--amber);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .pkg-cta {
+            display: block;
+            text-align: center;
+            background: var(--blue);
+            color: #fff;
+            padding: 0.8rem;
+            border-radius: 8px;
+            font-family: var(--font-head);
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .pkg-cta:hover {
+            background: var(--glow);
+            text-decoration: none;
+        }
+
+        .deliverables {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .del-card {
+            background: var(--ink-2);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem;
+            text-align: center;
+        }
+
+        .del-card .icon {
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .del-card p {
+            color: var(--muted);
+            font-size: 0.82rem;
+            max-width: none;
+            margin: 0;
+        }
+
+        .cta-band {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(37, 99, 235, 0.1));
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .cta-band h2 {
+            margin-bottom: 0.75rem;
+        }
+
+        .cta-band p {
+            margin-bottom: 1.75rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .related-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 3rem;
+        }
+
+        .related-link {
+            background: var(--ink-2);
+            border: 1px solid var(--border);
+            color: var(--muted);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+        }
+
+        .related-link:hover {
+            color: var(--white);
+            border-color: var(--glow);
+            text-decoration: none;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2rem 5vw;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            color: var(--muted);
+            font-size: 0.82rem;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="index.html" class="logo">Ken<span>iche</span></a>
+        <a href="index.html#contact" class="nav-cta">Get a Quote</a>
+    </nav>
+
+    <div class="page-hero">
+        <div class="container">
+            <div class="badge">Branding · Logo Design · Kenya</div>
+            <h1>Logo Design &amp; Brand Identity<br>for <span>Kenyan Businesses</span></h1>
+            <p class="lead">Your brand is more than a logo. It's the first impression you make — on a business card, a
+                WhatsApp status or a shopfront. We build consistent, professional brand identities that help businesses
+                in Kenya grow with confidence.</p>
+            <a href="index.html#contact" class="btn-primary">💬 Start Your Brand</a>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <div class="container">
+            <h2>Branding <span>Packages</span></h2>
+            <p>Choose from a focused logo project or a complete brand identity system:</p>
+            <div class="pkg-grid">
+                <div class="pkg">
+                    <div class="pkg-name">Logo Only</div>
+                    <div class="pkg-price">KES 8,000</div>
+                    <ul class="pkg-features">
+                        <li>3 logo concepts</li>
+                        <li>2 rounds of revisions</li>
+                        <li>Final files: PNG, JPG, SVG, PDF</li>
+                        <li>Light &amp; dark versions</li>
+                        <li>Delivered in 3–5 days</li>
+                    </ul>
+                    <a href="https://wa.me/254700451227?text=Hi%2C+I+need+a+logo+design" class="pkg-cta">Order Logo</a>
+                </div>
+                <div class="pkg featured">
+                    <div class="pkg-badge">Most Popular</div>
+                    <div class="pkg-name">Brand Starter</div>
+                    <div class="pkg-price">KES 20,000</div>
+                    <ul class="pkg-features">
+                        <li>Logo design (3 concepts)</li>
+                        <li>Brand colour palette</li>
+                        <li>Typography selection</li>
+                        <li>Business card design</li>
+                        <li>Brand guidelines PDF</li>
+                        <li>Delivered in 7–10 days</li>
+                    </ul>
+                    <a href="https://wa.me/254700451227?text=Hi%2C+I'm+interested+in+the+Brand+Starter+package"
+                        class="pkg-cta">Start Your Brand</a>
+                </div>
+                <div class="pkg">
+                    <div class="pkg-name">Full Brand Identity</div>
+                    <div class="pkg-price">KES 40,000</div>
+                    <ul class="pkg-features">
+                        <li>Everything in Brand Starter</li>
+                        <li>Letterhead &amp; email signature</li>
+                        <li>10 social media post templates</li>
+                        <li>Branded invoice template</li>
+                        <li>Full brand guidelines document</li>
+                        <li>Delivered in 14–21 days</li>
+                    </ul>
+                    <a href="https://wa.me/254700451227?text=Hi%2C+I'm+interested+in+Full+Brand+Identity"
+                        class="pkg-cta">Get Full Identity</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <div class="container">
+            <h2>What You'll <span>Receive</span></h2>
+            <p>Every branding project delivers usable files for print and digital, plus everything you need to look
+                consistent online and offline.</p>
+            <div class="deliverables">
+                <div class="del-card">
+                    <div class="icon">🖼️</div>
+                    <p>Logo in all formats (PNG, SVG, PDF)</p>
+                </div>
+                <div class="del-card">
+                    <div class="icon">🎨</div>
+                    <p>Brand colour codes (HEX, RGB, CMYK)</p>
+                </div>
+                <div class="del-card">
+                    <div class="icon">🔤</div>
+                    <p>Typography guide</p>
+                </div>
+                <div class="del-card">
+                    <div class="icon">🪪</div>
+                    <p>Business card design (print-ready)</p>
+                </div>
+                <div class="del-card">
+                    <div class="icon">📖</div>
+                    <p>Brand guidelines PDF</p>
+                </div>
+                <div class="del-card">
+                    <div class="icon">📱</div>
+                    <p>Social media profile assets</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="cta-band">
+            <h2>Ready to Build Your Brand?</h2>
+            <p>WhatsApp us your business name, industry and any brands you admire. We'll come back with ideas and a
+                quote.</p>
+            <a href="https://wa.me/254700451227?text=Hi+Keniche%2C+I+want+to+build+my+brand+identity"
+                class="btn-primary" style="font-size:1rem;padding:1rem 2.5rem">💬 WhatsApp Us Now</a>
+        </div>
+        <div class="related-links">
+            <a href="graphic-design.html" class="related-link">Graphic Design Services</a>
+            <a href="web-design-nairobi.html" class="related-link">Website Design</a>
+            <a href="affordable-web-design-kenya.html" class="related-link">Web + Brand Bundle</a>
+        </div>
+    </div>
+
+    <footer>
+        <a href="index.html" class="logo">Ken<span>iche</span></a>
+        <span>© 2025 Keniche · Nairobi, Kenya</span>
+        <a href="https://wa.me/254700451227" style="color:var(--glow)">+254 700 451 227</a>
+    </footer>
+</body>
+
+</html>
